@@ -25,4 +25,9 @@ rec {
     fi
     ${esptool}/bin/esptool.py --chip esp32 --port $PORT --baud 115200 write_flash -z 0x1000 ${micropython-esp32}/firmware.bin
   '';
+
+  env = buildEnv {
+    name = "esp32-env";
+    paths = [ flash-micropython-esp32 rshell mpfshell gcc-xtensa ];
+  };
 }
