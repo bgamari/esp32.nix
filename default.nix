@@ -16,6 +16,7 @@ rec {
   });
 
   rshell = python3Packages.callPackage ./rshell {};
+  mpfshell = python3Packages.callPackage ./mpfshell {};
 
   flash-micropython-esp32 = writeScriptBin "flash-micropyton-esp32" ''
     PORT=$1
