@@ -1,0 +1,25 @@
+From d97bcef503530a6a1b80c0d9df2d3dd1d01b2e81 Mon Sep 17 00:00:00 2001
+From: Ben Gamari <ben@smart-cactus.org>
+Date: Sun, 24 Feb 2019 13:12:46 -0500
+Subject: [PATCH] Rely on hashbang to invoke esp-idf tools
+
+---
+ ports/esp32/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ports/esp32/Makefile b/ports/esp32/Makefile
+index 068757834..275b60e2c 100644
+--- a/ports/esp32/Makefile
++++ b/ports/esp32/Makefile
+@@ -778,7 +778,7 @@ $(LDGEN_SECTION_INFOS): $(LDGEN_SECTIONS_INFO) $(ESPIDF)/make/ldgen.mk
+ 
+ $(BUILD)/esp32.common.ld: $(ESPCOMP)/esp32/ld/esp32.common.ld.in $(LDGEN_FRAGMENTS) $(SDKCONFIG) $(LDGEN_SECTION_INFOS)
+ 	$(ECHO) "GEN $@"
+-	$(Q)$(PYTHON) $(ESPIDF)/tools/ldgen/ldgen.py \
++	$(Q)$(ESPIDF)/tools/ldgen/ldgen.py \
+ 		--input $< \
+ 		--output $@ \
+ 		--config $(SDKCONFIG) \
+-- 
+2.18.1
+
