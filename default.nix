@@ -15,6 +15,8 @@ rec {
     };
   });
 
+  rshell = python3Packages.callPackage ./rshell {};
+
   flash-micropython-esp32 = writeScriptBin "flash-micropyton-esp32" ''
     PORT=$1
     if [[ -z "$PORT" ]]; then
